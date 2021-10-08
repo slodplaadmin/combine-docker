@@ -10,15 +10,15 @@ tar -cf static.tar ./core/static/*
 mv static.tar ./static
 cd ./static
 echo "### BUILDLOG:  Starting untar static.tar --strip=5" 2>&1 | tee -a $BUILDLOG
-tar -xf static.tar --strip=5
+tar -xf static.tar --strip=5 --no-same-owner
 echo "### BUILDLOG:  Starting untar static.tar --strip=4" 2>&1 | tee -a $BUILDLOG
-tar -xf static.tar --strip=4
+tar -xf static.tar --strip=4 --no-same-owner
 echo "### BUILDLOG:  Starting untar static.tar --strip=3" 2>&1 | tee -a $BUILDLOG
-tar -xf static.tar --strip=3
+tar -xf static.tar --strip=3 --no-same-owner
 echo "### BUILDLOG:  Starting untar static.tar --strip=2" 2>&1 | tee -a $BUILDLOG
-tar -xf static.tar --strip=2
+tar -xf static.tar --strip=2 --no-same-owner
 echo "### BUILDLOG:  Starting untar static.tar --strip=1" 2>&1 | tee -a $BUILDLOG
-tar -xf static.tar --strip=1
+tar -xf static.tar --strip=1 --no-same-owner
 
 if [[ ! -d "$WORKDIR/external-static/livy/" ]]; then
   mkdir -p $WORKDIR/external-static/livy
@@ -42,11 +42,11 @@ mv external-static.tar $WORKDIR/combine/combine/static
 cd $WORKDIR/combine/combine/static
 
 echo "### BUILDLOG:  Starting external-static untar --strip=3" 2>&1 | tee -a $BUILDLOG
-tar -xf external-static.tar --strip=3
+tar -xf external-static.tar --strip=3 --no-same-owner
 echo "### BUILDLOG:  Starting external-static untar --strip=2" 2>&1 | tee -a $BUILDLOG
-tar -xf external-static.tar --strip=2
+tar -xf external-static.tar --strip=2 --no-same-owner
 echo "### BUILDLOG:  Starting external-static untar --strip=1" 2>&1 | tee -a $BUILDLOG
-tar -xf external-static.tar --strip=1
+tar -xf external-static.tar --strip=1 --no-same-owner
 
 cd $WORKDIR
 echo "### BUILDLOG:  buildstatic.sh complete" 2>&1 | tee -a $BUILDLOG
